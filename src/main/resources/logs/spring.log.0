@@ -1,0 +1,4 @@
+[2021-05-28 06:33:08.715] - 15060 INFO [main] --- org.apache.catalina.core.StandardService: Starting service [Tomcat]
+[2021-05-28 06:33:08.722] - 15060 INFO [main] --- org.apache.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.46]
+[2021-05-28 06:33:08.838] - 15060 INFO [main] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+[2021-05-28 06:33:10.680] - 15060 INFO [main] --- org.apache.catalina.core.StandardService: Stopping service [Tomcat]

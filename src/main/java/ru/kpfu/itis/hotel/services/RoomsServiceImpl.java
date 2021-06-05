@@ -7,7 +7,6 @@ import ru.kpfu.itis.hotel.exceptions.NoRoomsAvailableException;
 import ru.kpfu.itis.hotel.models.Room;
 import ru.kpfu.itis.hotel.repositories.RoomsRepository;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -62,5 +61,10 @@ public class RoomsServiceImpl implements RoomsService {
         System.out.println(roomsRepository.findAllByDateToLessThan(availabilityDto.getDateFrom()));
         return roomsRepository.findAllByDateToLessThan(availabilityDto.getDateFrom());
         // return roomsRepository.getAvailableRooms(availabilityDto.getDateFrom());
+    }
+
+    @Override
+    public List<Room> findMostPopularRooms() {
+        return this.roomsRepository.findMostPopularRooms();
     }
 }

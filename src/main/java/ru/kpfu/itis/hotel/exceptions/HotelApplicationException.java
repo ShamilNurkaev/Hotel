@@ -8,7 +8,7 @@ package ru.kpfu.itis.hotel.exceptions;
  * 11-903
  */
 
-public abstract class HotelApplicationException extends RuntimeException {
+public class HotelApplicationException extends RuntimeException {
     public HotelApplicationException(String message) {
         super(message);
     }

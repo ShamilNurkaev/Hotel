@@ -78,7 +78,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                     .csrf().ignoringAntMatchers("/news")
                     .and()
-                    .csrf().ignoringAntMatchers("/availability");
+                    .csrf().ignoringAntMatchers("/availability")
+                    .and()
+                    .csrf().ignoringAntMatchers("/availability/popular");
 
 
         }

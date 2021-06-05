@@ -22,4 +22,7 @@ public interface RoomsService {
     Optional<Room> findByName(String name);
     List<Room> getAllRooms();
     List<Room> getAvailableRooms(AvailabilityDto availabilityDto) throws NoRoomsAvailableException;
+
+    List<Room> findMostPopularRooms();
 }
+

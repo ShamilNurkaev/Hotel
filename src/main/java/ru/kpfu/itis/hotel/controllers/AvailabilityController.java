@@ -51,8 +51,19 @@ public class AvailabilityController {
         } catch (NoRoomsAvailableException e) {
             model.addAttribute("noAvailableRooms",
                     "Нет доступных номеров с указанными параметрами. " +
-                    "Вы можете выбрать номер самостоятельно среди всех.");
+                            "Вы можете выбрать номер самостоятельно среди всех.");
             return roomsService.getAllRooms();
         }
+    }
+
+    @PostMapping("/availability/popular")
+    @PermitAll
+    public @ResponseBody
+    List<Room> getMostPopularRooms(Model model) {
+        System.out.print("getMostPopularRooms controller");
+        List<Room> mostPopularRooms = roomsService.findMostPopularRooms();
+        System.out.println("mostPopularRooms = " + mostPopularRooms);
+
+        return mostPopularRooms;
     }
 }

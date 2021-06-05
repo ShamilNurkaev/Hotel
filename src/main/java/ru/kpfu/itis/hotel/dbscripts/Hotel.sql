@@ -136,5 +136,30 @@ create table spring_session_attributes
 alter table spring_session_attributes
     owner to postgres;
 
+SELECT bh.room_id
+FROM booking_hotel bh
+GROUP BY bh.room_id
+HAVING bh.room_id = MAX(bh.room_id);
+
+
+WITH _popular_rooms AS (
+    SELECT * FROM (SELECT bh.room_id, COUNT(bh.room_id) as count
+    FROM booking_hotel bh
+    GROUP BY bh.room_id) AS a
+    GROUP BY a.room_id
+    HAVING a.count = MAX(a.count)
+)
+SELECT rh.id,
+       rh.adults_number,
+       rh.child_number,
+       rh.date_from,
+       rh.date_to,
+       rh.name,
+       rh.photo,
+       rh.price,
+       rh.rooms_number,
+       rh.user_id
+FROM room_hotel rh
+         INNER JOIN _popular_rooms _pr ON rh.id = _pr.room_id
 
 

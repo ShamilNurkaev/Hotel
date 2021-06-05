@@ -103,6 +103,10 @@
                                 ПРОВЕРИТЬ
                             </button>
                             <p></p>
+                            <button id="popular-rooms-btn" name="popular-rooms-btn">
+                                Most Popular Rooms
+                            </button>
+                            <p></p>
                             <#if noAvailableRooms??>
                                 <h6 class="text-danger">${noAvailableRooms}</h6>
                             </#if>
@@ -119,6 +123,12 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="room-section spad">
+    <div class="container" id="popular-rooms">
+
     </div>
 </section>
 

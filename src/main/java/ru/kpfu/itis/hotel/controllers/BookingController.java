@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.kpfu.itis.hotel.models.BookingHistory;
 import ru.kpfu.itis.hotel.models.Room;
 import ru.kpfu.itis.hotel.models.User;
-import ru.kpfu.itis.hotel.repositories.BookingHistoryRepository;
+import ru.kpfu.itis.hotel.services.BookingHistoryService;
 import ru.kpfu.itis.hotel.services.RoomsService;
 import ru.kpfu.itis.hotel.services.UsersService;
 
@@ -38,14 +38,15 @@ public class BookingController extends HttpServlet {
 
     private final UsersService usersService;
     private final RoomsService roomsService;
-    // TODO: сделать через сервисы
-    private final BookingHistoryRepository bookingRepository;
+    private final BookingHistoryService bookingService;
 
     @Autowired
-    public BookingController(UsersService usersService, RoomsService roomsService, BookingHistoryRepository bookingRepository) {
+    public BookingController(UsersService usersService,
+                             RoomsService roomsService,
+                             BookingHistoryService bookingService) {
         this.usersService = usersService;
         this.roomsService = roomsService;
-        this.bookingRepository = bookingRepository;
+        this.bookingService = bookingService;
     }
 
     @PermitAll
@@ -70,7 +71,7 @@ public class BookingController extends HttpServlet {
                     .dateFrom(Timestamp.valueOf((LocalDateTime.now())))
                     .dateTo(Timestamp.valueOf(LocalDateTime.now().plusDays(10)))
                     .build();
-            bookingRepository.save(newBooking);
+            bookingService.save(newBooking);
             /*}*/
         }
 
